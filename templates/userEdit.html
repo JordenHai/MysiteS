@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0 auto;
+        }
+        .direct{
+            text-align: center;
+            height: 48px;
+            background-color: black;
+            line-height: 48px;
+            color: wheat;
+        }
+        .menu{
+            display: block;
+            padding: 5px 20px;
+        }
+         .tagmenu{
+            position: absolute;
+            top:48px;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            background-color: brown;
+        }
+        .content{
+            position:absolute;
+            top:48px;
+            left: 210px;
+            bottom: 0px;
+            right: 0px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="direct">
+        张扬 凌晨三点 玩 愤怒的 小鸟
+    </div>
+    <div>
+        <div class="tagmenu">
+            <a href="/app01/user_info/" class="menu">用户管理</a>
+            <a href="/app01/group_info/" class="menu">用户组管理</a>
+        </div>
+        <div class="content">
+           <h1>编辑用户</h1>
+            <form action="/app01/useredit-{{ obj.id }}/" method="post">
+            <div style="display: none"><input type="text"  value="{{ obj.id }}" name="id"></div>
+            <div><input type="text" value="{{ obj.username }}" name="username"></div>
+            <div><input type="text" value="{{ obj.password }}" name="password"></div>
+            <div><input type="submit" value="提交"></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

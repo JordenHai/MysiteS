@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0 auto;
+        }
+        .direct{
+            text-align: center;
+            height: 48px;
+            background-color: black;
+            line-height: 48px;
+            color: wheat;
+        }
+        .menu{
+            display: block;
+            padding: 5px 20px;
+        }
+         .tagmenu{
+            position: absolute;
+            top:48px;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            background-color: brown;
+        }
+        .content{
+            position:absolute;
+            top:48px;
+            left: 210px;
+            bottom: 0px;
+            right: 0px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="direct">
+        张扬 凌晨三点 玩 愤怒的 小鸟
+    </div>
+    <div>
+        <div class="tagmenu">
+            <a href="/app01/user_info/" class="menu">用户管理</a>
+            <a href="/app01/group_info/" class="menu">用户组管理</a>
+        </div>
+        <div class="content">
+            <h3>添加用户</h3>
+            <form action="/app01/user_info/" method="post">
+                 <input type="text" name="user" placeholder="用户名">
+                 <input type="text" name="passwd" placeholder="密码">
+                 <input type="submit" value="提交">
+            </form>
+            <h3>用户列表</h3>
+            <ul>
+                {% for row in user_list %}
+                <li>
+                    <a href="/app01/userdetail-{{row.id}}/">{{ row.username }}</a>
+                    <span>{{ row.user_group.caption }}</span>
+                    <a href="/app01/userdel-{{row.id}}/">删除</a>
+                    <a href="/app01/useredit-{{row.id}}/">编辑</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
